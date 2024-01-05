@@ -1,9 +1,6 @@
 package com.example.jpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 /*
@@ -25,4 +22,8 @@ public class Student {
     private Integer age;
     private String phone;
     private String email;
+
+    // FK Column -> Join Column
+    @ManyToOne
+    private Instructor advisor;
 }

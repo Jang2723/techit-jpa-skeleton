@@ -1,6 +1,8 @@
 package com.example.jpa;
 
 import com.example.jpa.dto.InstructorDto;
+import com.example.jpa.entity.Instructor;
+import com.example.jpa.repo.InstructorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class InstructorService {
+    private final InstructorRepository instructorRepository;
 
-    public InstructorDto readInstructor(Long id) {
-        return new InstructorDto();
+    public Instructor readInstructor(Long id) {
+        return instructorRepository.findById(id).orElse(null);
     }
 
-    public List<InstructorDto> readInstructorAll() {
-        return new ArrayList<>();
+    public List<Instructor> readInstructorAll() {
+        return instructorRepository.findAll();
     }
 
 }
